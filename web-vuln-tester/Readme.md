@@ -37,22 +37,6 @@ Tech Stack:
 - Libraries: requests, beautifulsoup4, urllib3, reportlab (if used)
 - Output Formats: HTML, JSON, Console
 
-Project Structure:
-------------------
-web-vuln-tester/
-|
-├── app.py                   # Flask web interface
-├── scanner.py               # Main vulnerability scanner
-├── dir_bruteforce.py        # Directory brute-forcing module
-├── concurrent_bruteforce.py # Optimized concurrent scanning
-├── one_pager.py             # One-pager checklist report generator
-|
-├── templates/               # HTML templates for web interface
-├── static/                  # CSS, JS, and assets for reports
-├── reports/                 # Generated HTML reports
-|
-├── requirements.txt         # Dependency list
-└── README.txt               # Project documentation (this file)
 
 Installation & Setup:
 ---------------------
@@ -129,5 +113,6 @@ Future Enhancements:
 - Automatic SSL expiry alerts
 - Integration with OWASP ZAP or Nmap
 - Cloud dashboard for continuous monitoring
+
 
 
