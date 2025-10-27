@@ -1,0 +1,285 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>WebVulnTester — Fancy Report</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+
+  <style>
+    body { padding: 20px; background: #f5f7fb; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+    .card { box-shadow: 0 6px 18px rgba(40,50,80,0.06); }
+    pre { background: #0b0b0b; color: #eaeaea; padding: 14px; border-radius: 6px; overflow:auto; max-height:420px; }
+    .header-badge { font-size:0.9rem; padding:0.35rem 0.6rem; border-radius:6px; }
+    .missing { background:#ffefef; color:#b22; border:1px solid #f2c6c6; }
+    .present { background:#eefdf3; color:#0b7; border:1px solid #cfe9d7; }
+    .muted-small { color:#666; font-size:0.9rem; }
+    .copy-btn { cursor:pointer; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="d-flex align-items-center mb-3">
+    <h1 class="me-auto">WebVulnTester</h1>
+    <div>
+      <small class="muted-small">Local demo • Do not expose publicly</small>
+    </div>
+  </div>
+
+  <div class="card p-3 mb-3">
+    <form method="post" action="/scan" class="row g-2">
+      <div class="col-md-9">
+        <input name="target" type="text" class="form-control" placeholder="https://example.com" value="https://example.com" required />
+      </div>
+      <div class="col-md-3 d-flex gap-2">
+        <button class="btn btn-primary w-100" type="submit">Run scan</button>
+      </div>
+    </form>
+  </div>
+
+  
+  <div class="row g-3 mb-3">
+    <div class="col-md-3">
+      <div class="card p-3">
+        <div class="text-muted small">Target</div>
+        <div class="fw-bold">https://example.com</div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card p-3">
+        <div class="text-muted small">Status</div>
+        <div class="fw-bold">200</div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card p-3">
+        <div class="text-muted small">Vulnerabilities</div>
+        <div class="fw-bold text-success">0</div>
+      </div>
+    </div>
+    <div class="col-md-3 d-flex align-items-stretch">
+      <div class="card p-2 w-100">
+        <div class="d-flex justify-content-between align-items-center">
+          <div>
+            <small class="text-muted">Report</small><br/>
+            <strong>2025-10-27 12:48:58</strong>
+          </div>
+          <div>
+            
+              <a class="btn btn-sm btn-outline-primary me-1" href="/reports/report_https_example.com_20251027_124858.html" target="_blank">Open</a>
+              <a class="btn btn-sm btn-primary" href="/reports/report_https_example.com_20251027_124858.html" download>Download</a>
+            
+            <button class="btn btn-sm btn-secondary ms-1" onclick="window.print()">Print</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Security headers -->
+  <div class="card mb-3 p-3">
+    <div class="d-flex justify-content-between">
+      <h5 class="mb-0">Security Headers</h5>
+      <div class="muted-small">Missing headers highlighted in red</div>
+    </div>
+    <div class="mt-2">
+      <div class="row">
+        
+          <div class="col-md-4 mb-2">
+            <div class="p-2 border rounded d-flex justify-content-between align-items-center">
+              <div>
+                <div class="small text-muted">Content-Security-Policy</div>
+                <div class="fw-semibold">&lt;missing&gt;</div>
+              </div>
+              <div>
+                
+                  <span class="header-badge missing">Missing</span>
+                
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-md-4 mb-2">
+            <div class="p-2 border rounded d-flex justify-content-between align-items-center">
+              <div>
+                <div class="small text-muted">X-Content-Type-Options</div>
+                <div class="fw-semibold">&lt;missing&gt;</div>
+              </div>
+              <div>
+                
+                  <span class="header-badge missing">Missing</span>
+                
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-md-4 mb-2">
+            <div class="p-2 border rounded d-flex justify-content-between align-items-center">
+              <div>
+                <div class="small text-muted">X-Frame-Options</div>
+                <div class="fw-semibold">&lt;missing&gt;</div>
+              </div>
+              <div>
+                
+                  <span class="header-badge missing">Missing</span>
+                
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-md-4 mb-2">
+            <div class="p-2 border rounded d-flex justify-content-between align-items-center">
+              <div>
+                <div class="small text-muted">X-XSS-Protection</div>
+                <div class="fw-semibold">&lt;missing&gt;</div>
+              </div>
+              <div>
+                
+                  <span class="header-badge missing">Missing</span>
+                
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-md-4 mb-2">
+            <div class="p-2 border rounded d-flex justify-content-between align-items-center">
+              <div>
+                <div class="small text-muted">Strict-Transport-Security</div>
+                <div class="fw-semibold">&lt;missing&gt;</div>
+              </div>
+              <div>
+                
+                  <span class="header-badge missing">Missing</span>
+                
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-md-4 mb-2">
+            <div class="p-2 border rounded d-flex justify-content-between align-items-center">
+              <div>
+                <div class="small text-muted">Referrer-Policy</div>
+                <div class="fw-semibold">&lt;missing&gt;</div>
+              </div>
+              <div>
+                
+                  <span class="header-badge missing">Missing</span>
+                
+              </div>
+            </div>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- Forms & vulnerabilities -->
+  <div class="row">
+    <div class="col-lg-7">
+      <div class="card mb-3 p-3">
+        <h5>Forms Found <span class="text-muted">(0)</span></h5>
+        
+          <p class="mb-0">No forms found on the page.</p>
+        
+      </div>
+
+      <div class="card mb-3 p-3">
+        <h5>Directory Brute-Force Results <span class="text-muted">(1)</span></h5>
+        
+          <table class="table table-sm">
+            <thead><tr><th>URL</th><th>Status</th></tr></thead>
+            <tbody>
+              
+                <tr><td><a href="https://example.com/index.html" target="_blank">https://example.com/index.html</a></td><td>200</td></tr>
+              
+            </tbody>
+          </table>
+        
+      </div>
+    </div>
+
+    <div class="col-lg-5">
+      <div class="card mb-3 p-3">
+        <h5>Detected Vulnerabilities</h5>
+        
+          <p class="mb-0">No automated vulnerabilities detected.</p>
+        
+      </div>
+
+      <div class="card mb-3 p-3">
+        <h5>Robots.txt</h5>
+        
+          <p class="mb-0">robots.txt not found (or no response)</p>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- Raw output with copy -->
+  <div class="card p-3 mt-3">
+    <div class="d-flex justify-content-between align-items-center mb-2">
+      <h5 class="mb-0">Raw Scanner Output</h5>
+      <div>
+        <button class="btn btn-sm btn-outline-secondary me-1" id="copyBtn" title="Copy raw output">Copy</button>
+        <button class="btn btn-sm btn-outline-secondary" onclick="toggleRaw()">Toggle raw</button>
+      </div>
+    </div>
+    <div id="rawArea" class="mt-2">
+      <pre id="rawPre">{
+  &#34;target&#34;: &#34;https://example.com&#34;,
+  &#34;final_url&#34;: &#34;https://example.com/&#34;,
+  &#34;status_code&#34;: 200,
+  &#34;content_type&#34;: &#34;text/html&#34;,
+  &#34;security_headers&#34;: {
+    &#34;Content-Security-Policy&#34;: null,
+    &#34;X-Content-Type-Options&#34;: null,
+    &#34;X-Frame-Options&#34;: null,
+    &#34;X-XSS-Protection&#34;: null,
+    &#34;Strict-Transport-Security&#34;: null,
+    &#34;Referrer-Policy&#34;: null
+  },
+  &#34;robots_txt&#34;: null,
+  &#34;forms&#34;: [],
+  &#34;vulnerabilities&#34;: [],
+  &#34;bruteforce&#34;: [
+    {
+      &#34;url&#34;: &#34;https://example.com/index.html&#34;,
+      &#34;status&#34;: 200
+    }
+  ]
+}
+</pre>
+    </div>
+  </div>
+
+  
+
+  <footer class="text-center text-muted mt-4 small">
+    WebVulnTester — educational demo. Only scan with permission.
+  </footer>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="" crossorigin="anonymous"></script>
+
+<script>
+  function toggleRaw(){
+    const raw = document.getElementById('rawArea');
+    raw.style.display = (raw.style.display === 'none') ? 'block' : 'none';
+  }
+  document.getElementById('copyBtn')?.addEventListener('click', async function(){
+    const txt = document.getElementById('rawPre').innerText;
+    try{
+      await navigator.clipboard.writeText(txt);
+      this.innerText = 'Copied';
+      setTimeout(()=> this.innerText = 'Copy', 1200);
+    }catch(e){
+      alert('Copy failed. You can select and copy manually.');
+    }
+  });
+</script>
+</body>
+</html>

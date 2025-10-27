@@ -1,0 +1,28 @@
+{
+  "target": "https://example.com",
+  "final_url": "https://example.com/",
+  "status_code": 200,
+  "content_type": "text/html",
+  "security_headers": {
+    "Content-Security-Policy": null,
+    "X-Content-Type-Options": null,
+    "X-Frame-Options": null,
+    "X-XSS-Protection": null,
+    "Strict-Transport-Security": null,
+    "Referrer-Policy": null
+  },
+  "robots_txt": null,
+  "forms": [],
+  "vulnerabilities": [],
+  "bruteforce": [
+    {
+      "url": "https://example.com/index.html",
+      "status": 200
+    }
+  ],
+  "cookies": [],
+  "cookie_issues": [],
+  "__score__": 40,
+  "__grade__": "Poor",
+  "__summary__": "6 essential header(s) missing, 0 cookie issue(s), 0 vulnerability(ies) detected."
+}

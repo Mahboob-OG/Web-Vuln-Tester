@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Scan report - https://example.com</title>
+  <style>
+    body{font-family:system-ui,Segoe UI,Arial,sans-serif;padding:20px;max-width:980px;margin:auto}
+    pre{background:#111; color:#eee; padding:16px; overflow:auto; border-radius:6px}
+    h1{font-size:20px}
+    .meta{color:#555;margin-bottom:8px}
+  </style>
+</head>
+<body>
+  <h1>WebVulnTester - Scan Report</h1>
+  <div class="meta"><strong>Target:</strong> https://example.com &nbsp; &nbsp; <strong>Time:</strong> 20251027_111932</div>
+  <h2>Raw scanner output</h2>
+  <pre>[+] Scanning: https://example.com
+=== BASIC RESPONSE INFO ===
+URL: https://example.com/
+Status Code: 200
+Content-Type: text/html
+
+=== SECURITY-RELATED HEADERS ===
+Content-Security-Policy: None
+X-Content-Type-Options: None
+X-Frame-Options: None
+X-XSS-Protection: None
+Strict-Transport-Security: None
+Referrer-Policy: None
+
+=== robots.txt ===
+[i] robots.txt over HTTPS failed; trying HTTP fallback: http://example.com/robots.txt
+robots.txt not found (status: no response)
+
+=== FORMS FOUND ===
+No forms found on the page.
+</pre>
+</body>
+</html>

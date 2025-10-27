@@ -1,0 +1,284 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>WebVulnTester — Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <style>
+    body { padding:20px; background:#f5f7fb; color:#222; }
+    .card { box-shadow: 0 6px 18px rgba(40,50,80,0.06); }
+    pre{ background:#0b0b0b;color:#eaeaea;padding:14px;border-radius:6px;overflow:auto; max-height:420px;}
+    .badge-high { background:#e55353; color:#fff; }    /* red */
+    .badge-medium { background:#f0ad4e; color:#fff; }  /* orange */
+    .badge-low { background:#5cb85c; color:#fff; }     /* green */
+    .muted-small { color:#666; font-size:0.9rem; }
+    .no-print { }
+    @media print {
+      body { background: white; color: #000; }
+      .no-print, form, .btn { display: none !important; }
+      .container { width: 100%; padding: 0; }
+      pre { max-height: none; background: #f7f7f7; color: #000; }
+      table { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="d-flex align-items-center mb-3">
+    <h1 class="me-auto">WebVulnTester</h1>
+    <div><small class="muted-small">Local demo • Only scan with permission</small></div>
+  </div>
+
+  <div class="card p-3 mb-3 no-print">
+    <form method="post" action="/scan" class="row g-2 align-items-center">
+      <div class="col-md-5">
+        <input name="target" type="text" class="form-control" placeholder="https://example.com" value="https://example.com" required />
+      </div>
+      <div class="col-md-2">
+        <label class="form-check">
+          <input class="form-check-input" type="checkbox" name="concurrent" value="1" />
+          Concurrent BF
+        </label>
+      </div>
+      <div class="col-md-2">
+        <input name="workers" type="number" min="1" max="80" class="form-control" placeholder="Workers" value="10" />
+      </div>
+      <div class="col-md-3">
+        <button class="btn btn-primary w-100" type="submit">Run scan</button>
+      </div>
+    </form>
+  </div>
+
+  
+  <!-- DASHBOARD SUMMARY -->
+  <div class="card mb-3 p-3">
+    <div class="d-flex justify-content-between align-items-center mb-2">
+      <div>
+        <div class="small text-muted">Target</div>
+        <div class="h5 mb-0">https://example.com</div>
+        <div class="muted-small">Final URL: https://example.com/</div>
+      </div>
+
+      <div style="max-width:480px;width:48%">
+        <div class="d-flex justify-content-between">
+          <div>
+            <div class="small text-muted">Security Score</div>
+            <div class="h4 mb-0">40 / 100 <span class="badge bg-secondary">Poor</span></div>
+          </div>
+          <div class="text-end">
+            <div class="small text-muted">Vulnerabilities</div>
+            <div class="h4 mb-0">0</div>
+          </div>
+        </div>
+
+        <div class="progress mt-2" style="height:18px;">
+          <div class="progress-bar" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
+            40%
+          </div>
+        </div>
+
+        <div class="mt-2 muted-small">6 essential header(s) missing, 0 cookie issue(s), 0 vulnerability(ies) detected.</div>
+      </div>
+
+      <div class="text-end">
+        <div class="muted-small">Report created</div>
+        <div class="fw-bold">2025-10-27 13:29:50</div>
+        <div class="mt-2">
+          
+            <a class="btn btn-sm btn-outline-primary me-1" href="/reports/report_https_example.com_20251027_132950.html" target="_blank">Open</a>
+            <a class="btn btn-sm btn-primary" href="/reports/report_https_example.com_20251027_132950.html" download>Download</a>
+          
+          <button class="btn btn-sm btn-secondary ms-1" onclick="window.print()">Print</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Security Headers (compact) -->
+  <div class="card mb-3 p-3">
+    <h5 class="mb-2">Security Headers</h5>
+    <div class="row">
+      
+        <div class="col-md-4 mb-2">
+          <div class="p-2 border rounded d-flex justify-content-between align-items-center">
+            <div><div class="small text-muted">Content-Security-Policy</div><div class="fw-semibold">&lt;missing&gt;</div></div>
+            <div>
+              
+                <span class="badge-low" style="background:#ffdede;color:#b22;border:1px solid #f2c6c6">Missing</span>
+              
+            </div>
+          </div>
+        </div>
+      
+        <div class="col-md-4 mb-2">
+          <div class="p-2 border rounded d-flex justify-content-between align-items-center">
+            <div><div class="small text-muted">X-Content-Type-Options</div><div class="fw-semibold">&lt;missing&gt;</div></div>
+            <div>
+              
+                <span class="badge-low" style="background:#ffdede;color:#b22;border:1px solid #f2c6c6">Missing</span>
+              
+            </div>
+          </div>
+        </div>
+      
+        <div class="col-md-4 mb-2">
+          <div class="p-2 border rounded d-flex justify-content-between align-items-center">
+            <div><div class="small text-muted">X-Frame-Options</div><div class="fw-semibold">&lt;missing&gt;</div></div>
+            <div>
+              
+                <span class="badge-low" style="background:#ffdede;color:#b22;border:1px solid #f2c6c6">Missing</span>
+              
+            </div>
+          </div>
+        </div>
+      
+        <div class="col-md-4 mb-2">
+          <div class="p-2 border rounded d-flex justify-content-between align-items-center">
+            <div><div class="small text-muted">X-XSS-Protection</div><div class="fw-semibold">&lt;missing&gt;</div></div>
+            <div>
+              
+                <span class="badge-low" style="background:#ffdede;color:#b22;border:1px solid #f2c6c6">Missing</span>
+              
+            </div>
+          </div>
+        </div>
+      
+        <div class="col-md-4 mb-2">
+          <div class="p-2 border rounded d-flex justify-content-between align-items-center">
+            <div><div class="small text-muted">Strict-Transport-Security</div><div class="fw-semibold">&lt;missing&gt;</div></div>
+            <div>
+              
+                <span class="badge-low" style="background:#ffdede;color:#b22;border:1px solid #f2c6c6">Missing</span>
+              
+            </div>
+          </div>
+        </div>
+      
+        <div class="col-md-4 mb-2">
+          <div class="p-2 border rounded d-flex justify-content-between align-items-center">
+            <div><div class="small text-muted">Referrer-Policy</div><div class="fw-semibold">&lt;missing&gt;</div></div>
+            <div>
+              
+                <span class="badge-low" style="background:#ffdede;color:#b22;border:1px solid #f2c6c6">Missing</span>
+              
+            </div>
+          </div>
+        </div>
+      
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-7">
+      <!-- Forms -->
+      <div class="card mb-3 p-3">
+        <h5>Forms (0)</h5>
+        
+          <p>No forms found.</p>
+        
+      </div>
+
+      <!-- Brute-force results -->
+      <div class="card mb-3 p-3">
+        <h5>Directory Brute-Force Results <span class="text-muted">(1)</span></h5>
+        
+          <table class="table table-sm">
+            <thead><tr><th>URL</th><th>Status</th></tr></thead>
+            <tbody>
+              
+                <tr><td><a href="https://example.com/index.html" target="_blank">https://example.com/index.html</a></td><td>200</td></tr>
+              
+            </tbody>
+          </table>
+        
+      </div>
+    </div>
+
+    <div class="col-lg-5">
+      <!-- Vulnerabilities with severity badges -->
+      <div class="card mb-3 p-3">
+        <h5>Detected Vulnerabilities</h5>
+        
+          <p>No automated vulnerabilities detected.</p>
+        
+      </div>
+
+      <!-- Cookies -->
+      <div class="card mb-3 p-3">
+        <h5>Cookies & Issues</h5>
+        
+          <p>No cookies set or detected.</p>
+        
+      </div>
+
+      <!-- robots.txt -->
+      <div class="card mb-3 p-3">
+        <h5>robots.txt</h5>
+        
+          <p>Not found or no response.</p>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- Raw JSON -->
+  <div class="card p-3 mt-3">
+    <div class="d-flex justify-content-between align-items-center mb-2">
+      <h5 class="mb-0">Raw JSON output</h5>
+      <div class="no-print">
+        <button class="btn btn-sm btn-outline-secondary" id="copyBtn">Copy JSON</button>
+        <a class="btn btn-sm btn-outline-primary" href="/reports/json/scan_https_example.com_20251027_132950.json">Download JSON</a>
+      </div>
+    </div>
+    <pre id="rawPre">{
+  &#34;target&#34;: &#34;https://example.com&#34;,
+  &#34;final_url&#34;: &#34;https://example.com/&#34;,
+  &#34;status_code&#34;: 200,
+  &#34;content_type&#34;: &#34;text/html&#34;,
+  &#34;security_headers&#34;: {
+    &#34;Content-Security-Policy&#34;: null,
+    &#34;X-Content-Type-Options&#34;: null,
+    &#34;X-Frame-Options&#34;: null,
+    &#34;X-XSS-Protection&#34;: null,
+    &#34;Strict-Transport-Security&#34;: null,
+    &#34;Referrer-Policy&#34;: null
+  },
+  &#34;robots_txt&#34;: null,
+  &#34;forms&#34;: [],
+  &#34;vulnerabilities&#34;: [],
+  &#34;bruteforce&#34;: [
+    {
+      &#34;url&#34;: &#34;https://example.com/index.html&#34;,
+      &#34;status&#34;: 200
+    }
+  ],
+  &#34;cookies&#34;: [],
+  &#34;cookie_issues&#34;: []
+}
+
+
+--- Concurrent bruteforce output (merged) ---
+[
+  {
+    &#34;url&#34;: &#34;https://example.com/index.html&#34;,
+    &#34;status&#34;: 200
+  }
+]</pre>
+  </div>
+
+  <footer class="text-center text-muted mt-4 small no-print">WebVulnTester — educational demo. Only scan with permission.</footer>
+  
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script>
+  document.getElementById('copyBtn')?.addEventListener('click', async function(){
+    const txt = document.getElementById('rawPre').innerText;
+    try{ await navigator.clipboard.writeText(txt); alert('JSON copied to clipboard'); }
+    catch(e){ alert('Copy failed — select and copy manually.'); }
+  });
+</script>
+</body>
+</html>

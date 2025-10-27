@@ -1,0 +1,115 @@
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>WebVulnTester — Fancy Report</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <style>
+    body{font-family:system-ui,Segoe UI,Arial,sans-serif;padding:20px;max-width:1000px;margin:auto}
+    .btn{display:inline-block;background:#2b7cff;color:#fff;padding:8px 12px;border-radius:6px;text-decoration:none}
+    .section{background:#f8f9fb;border-radius:8px;padding:14px;margin:12px 0}
+    pre{background:#0b0b0b;color:#eaeaea;padding:12px;border-radius:6px;overflow:auto}
+    table{width:100%;border-collapse:collapse}
+    th,td{padding:8px;border-bottom:1px solid #ddd;text-align:left}
+    h1,h2{margin:0}
+  </style>
+</head>
+<body>
+  <h1>WebVulnTester — Fancy Report</h1>
+  <p>Only scan targets you own or have permission to scan.</p>
+
+  <form method="post" action="/scan">
+    <input name="target" type="text" placeholder="https://example.com" style="width:78%;padding:8px" value="" required />
+    <button class="btn" type="submit">Run scan</button>
+  </form>
+
+  
+    <div style="margin-top:12px">
+      <a href="/reports/report_https_example.com_20251027_120201.html" class="btn" target="_blank">Open Report</a>
+      <a href="/reports/report_https_example.com_20251027_120201.html" class="btn" download style="margin-left:8px">Download</a>
+      <span style="margin-left:12px;color:#555">2025-10-27 12:02:01</span>
+    </div>
+
+    <div class="section" style="margin-top:18px">
+      <h2>Summary</h2>
+      <p><strong>Target:</strong> https://example.com &nbsp; &nbsp; <strong>Final URL:</strong> https://example.com/</p>
+      <p><strong>Status:</strong> 200 &nbsp; &nbsp; <strong>Content-Type:</strong> text/html</p>
+      <p><strong>Vulnerabilities found:</strong> 0</p>
+      <p><strong>Interesting paths (bruteforce):</strong> 1</p>
+    </div>
+
+    <div class="section">
+      <h2>Security Headers</h2>
+      <table><thead><tr><th>Header</th><th>Value</th></tr></thead><tbody>
+        
+          <tr><td>Content-Security-Policy</td><td>&lt;i&gt;missing&lt;/i&gt;</td></tr>
+        
+          <tr><td>X-Content-Type-Options</td><td>&lt;i&gt;missing&lt;/i&gt;</td></tr>
+        
+          <tr><td>X-Frame-Options</td><td>&lt;i&gt;missing&lt;/i&gt;</td></tr>
+        
+          <tr><td>X-XSS-Protection</td><td>&lt;i&gt;missing&lt;/i&gt;</td></tr>
+        
+          <tr><td>Strict-Transport-Security</td><td>&lt;i&gt;missing&lt;/i&gt;</td></tr>
+        
+          <tr><td>Referrer-Policy</td><td>&lt;i&gt;missing&lt;/i&gt;</td></tr>
+        
+      </tbody></table>
+    </div>
+
+    <div class="section">
+      <h2>Forms Found (0)</h2>
+      
+        <p>No forms found.</p>
+      
+    </div>
+
+    <div class="section">
+      <h2>Vulnerabilities (0)</h2>
+      
+        <p>No vulnerabilities detected by automated checks.</p>
+      
+    </div>
+
+    <div class="section">
+      <h2>Directory Brute-Force Results</h2>
+      
+        <table><thead><tr><th>URL</th><th>Status</th></tr></thead><tbody>
+          
+            <tr><td>https://example.com/index.html</td><td>200</td></tr>
+          
+        </tbody></table>
+      
+    </div>
+
+    <div class="section">
+      <h2>Raw Scanner Output</h2>
+      <pre>{
+  &#34;target&#34;: &#34;https://example.com&#34;,
+  &#34;final_url&#34;: &#34;https://example.com/&#34;,
+  &#34;status_code&#34;: 200,
+  &#34;content_type&#34;: &#34;text/html&#34;,
+  &#34;security_headers&#34;: {
+    &#34;Content-Security-Policy&#34;: null,
+    &#34;X-Content-Type-Options&#34;: null,
+    &#34;X-Frame-Options&#34;: null,
+    &#34;X-XSS-Protection&#34;: null,
+    &#34;Strict-Transport-Security&#34;: null,
+    &#34;Referrer-Policy&#34;: null
+  },
+  &#34;robots_txt&#34;: null,
+  &#34;forms&#34;: [],
+  &#34;vulnerabilities&#34;: [],
+  &#34;bruteforce&#34;: [
+    {
+      &#34;url&#34;: &#34;https://example.com/index.html&#34;,
+      &#34;status&#34;: 200
+    }
+  ]
+}
+</pre>
+    </div>
+  
+</body>
+</html>
