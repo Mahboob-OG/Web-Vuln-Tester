@@ -130,22 +130,4 @@ Future Enhancements:
 - Integration with OWASP ZAP or Nmap
 - Cloud dashboard for continuous monitoring
 
-Disclaimer:
------------
-WARNING: Use this tool only for educational and authorized testing.
-Scanning or testing websites without explicit permission is illegal and unethical.
-The author is not responsible for misuse of this software.
 
-License:
---------
-This project is available under the MIT License.
-
-Author:
--------
-Mahboob Alam
-BCA Student — The Heritage Academy
-Email: mahboobalam10a@gmail.com
-
-Support:
---------
-If you find this project useful, please give it a star on GitHub!
