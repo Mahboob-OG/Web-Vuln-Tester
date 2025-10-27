@@ -29,24 +29,6 @@ Built using **Flask**, **Requests**, and **BeautifulSoup**, it’s designed for 
 - Uses concurrent requests for faster brute-forcing  
 - Runs entirely offline — no external dependencies after setup  
 
-## 📂 Project Structure
-
-web-vuln-tester/
-│
-├── app.py # Flask web interface
-├── scanner.py # Main vulnerability scanning logic
-├── concurrent_bruteforce.py # Directory brute-forcing module
-├── one_pager.py # Generates one-pager checklist report
-│
-├── templates/ # HTML templates for Flask app
-├── static/ # CSS/JS/Images for styling reports
-│
-├── reports/ # Generated scan reports
-├── requirements.txt # Dependencies list
-└── README.md # Project documentation
-
-
----
 
 ## ⚙️ Installation & Setup
 
