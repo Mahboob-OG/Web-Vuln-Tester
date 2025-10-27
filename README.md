@@ -1,8 +1,5 @@
 # Web-Vuln-Tester
-ChatGPT said:
 
-Perfect 👍 — here’s a professional, polished README.md for your Web Application Vulnerability Tester project.
-It’s formatted in Markdown, ready to paste directly into your GitHub repository.
 
 # 🛡️ Web Application Vulnerability Tester
 
@@ -32,22 +29,7 @@ Built using **Flask**, **Requests**, and **BeautifulSoup**, it’s designed for 
 - Uses concurrent requests for faster brute-forcing  
 - Runs entirely offline — no external dependencies after setup  
 
----
-
-## 🧠 Tech Stack
-
-| Component | Technology |
-|------------|-------------|
-| Language | Python 3.13 |
-| Framework | Flask |
-| Libraries | requests, BeautifulSoup4, concurrent.futures |
-| Output | HTML, JSON, and console reports |
-
----
-
 ## 📂 Project Structure
-
-
 
 web-vuln-tester/
 │
@@ -69,7 +51,8 @@ web-vuln-tester/
 ## ⚙️ Installation & Setup
 
 ### 1️⃣ Clone the Repository
-```bash
+bash :
+
 git clone https://github.com/<your-username>/web-vuln-tester.git
 cd web-vuln-tester
 
